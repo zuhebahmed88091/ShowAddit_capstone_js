@@ -1,0 +1,35 @@
+body {
+  background-color: #222;
+  color: #fff;
+}
+
+.navbar-wrapper {
+  display: flex;
+  justify-content: space-between;
+  background-color: #333;
+}
+
+.nav-logo-heading {
+  padding-left: 2rem;
+}
+
+.nav-ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  font-size: 1.6rem;
+  padding-right: 2rem;
+}
+
+.nav-items a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.license-footer {
+  margin-top: 2rem;
+  padding: 2rem;
+  text-align: center;
+  background-color: #333;
+}
