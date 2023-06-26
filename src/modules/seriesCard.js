@@ -37,11 +37,11 @@ const seriesCard = async () => {
     // likeCount.classList.add("like-count");
     // likeCount.textContent = totalLikes;
     // showCard.appendChild(likeCount);
-    // const commentBtn = document.createElement("button");
-    // commentBtn.classList.add("comments");
-    // commentBtn.dataset.id = index;
-    // commentBtn.textContent = "Comment";
-    // showCard.appendChild(commentBtn);
+    const commentBtn = document.createElement('button');
+    commentBtn.classList.add('comments');
+    commentBtn.dataset.id = index;
+    commentBtn.textContent = 'Comment';
+    showCard.appendChild(commentBtn);
     seriesCardWrapper.appendChild(showCard);
 
     // Event listener for the like button
