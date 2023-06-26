@@ -33,3 +33,57 @@ body {
   text-align: center;
   background-color: #333;
 }
+
+.show-card {
+  padding-bottom: 10%;
+}
+
+.series-card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.series-card {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.series-img {
+  width: 100%;
+  height: 75%;
+  border-radius: 8px;
+}
+
+.series-name {
+  margin-top: 10px;
+}
+
+.like-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.fa-thumbs-up {
+  color: #fff;
+  font-size: 18px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.comments {
+  background-color: #555;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-top: 10px;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.comments:hover {
+  background-color: #777;
+}
