@@ -1,4 +1,5 @@
 import { getSeries } from './getData.js';
+import modalContents from './modal.js';
 
 const seriesCard = async () => {
 //   const likes = await getLikes(); // Retrieve likes before updating series cards
@@ -50,6 +51,21 @@ const seriesCard = async () => {
     //   totalLikes += 1; // Increment the like count
     //   likeCount.textContent = totalLikes; // Update the like count immediately
     // });
+  });
+  const popButton = document.querySelectorAll('.comments');
+  popButton.forEach((pop) => {
+    pop.addEventListener('click', async (e) => {
+      const modalPart = document.querySelector('.modal');
+      const modalContent = document.querySelector('.modal-content');
+      modalPart.classList.remove('hidden');
+      modalContent.classList.add('active');
+      await modalContents(finalData, e.target.dataset.id);
+      const closeBtn = document.querySelector('.fa-xmark');
+      closeBtn.addEventListener('click', () => {
+        modalPart.classList.add('hidden');
+        modalContent.classList.remove('active');
+      });
+    });
   });
 };
 
