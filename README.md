@@ -73,7 +73,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- <a href="">Check out the live demo</a>
+- <a href="https://showaddict-fombi-zuheb.netlify.app">Check out the live demo</a>
 
 ## 🚀 Presentation <a name="presentation"></a>
 
