@@ -18,7 +18,7 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-# 📖 [Movie Monday] <a name="about-project"></a>
+# 📖 [Show Addict] <a name="about-project"></a>
 
 **ShowAddict** is a project where we utilize our HTML, CSS, and JavaScript skills to create a platform that interacts with the TVMAZE API. It enables users to fetch tv series, view summaries, post comments, and express their likes. Furthermore, the platform allows users to update the base API with their comments and likes, providing an interactive and engaging experience for tv series enthusiasts.
 

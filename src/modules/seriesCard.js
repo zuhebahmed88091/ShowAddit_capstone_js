@@ -1,19 +1,20 @@
-import { getSeries } from './getData.js';
+import { getSeries, getLikes, likePostApi } from './getData.js';
+import { likeUrl } from './api.js';
 import modalContents from './modal.js';
 
 const seriesCard = async () => {
-//   const likes = await getLikes(); // Retrieve likes before updating series cards
+  const likes = await getLikes(); // Retrieve likes before updating series cards
   const finalData = await getSeries();
   const seriesCardWrapper = document.getElementById('series');
   seriesCardWrapper.innerHTML = '';
   finalData.forEach((series, index) => {
-    // const likeId = likes.findIndex((like) => Number(like.item_id) === index);
-    // let totalLikes;
-    // if (likeId >= 0) {
-    //   totalLikes = likes[likeId].likes;
-    // } else {
-    //   totalLikes = 0;
-    // }
+    const likeId = likes.findIndex((like) => Number(like.item_id) === index);
+    let totalLikes;
+    if (likeId >= 0) {
+      totalLikes = likes[likeId].likes;
+    } else {
+      totalLikes = 0;
+    }
     const showCard = document.createElement('div');
     showCard.classList.add('show-card');
     const seriesImg = document.createElement('img');
@@ -34,10 +35,10 @@ const seriesCard = async () => {
     likeBtnDiv.appendChild(likeIcon);
     seriesDetails.appendChild(likeBtnDiv);
     showCard.appendChild(seriesDetails);
-    // const likeCount = document.createElement("p");
-    // likeCount.classList.add("like-count");
-    // likeCount.textContent = totalLikes;
-    // showCard.appendChild(likeCount);
+    const likeCount = document.createElement('p');
+    likeCount.classList.add('like-count');
+    likeCount.textContent = totalLikes;
+    showCard.appendChild(likeCount);
     const commentBtn = document.createElement('button');
     commentBtn.classList.add('comments');
     commentBtn.dataset.id = index;
@@ -46,11 +47,11 @@ const seriesCard = async () => {
     seriesCardWrapper.appendChild(showCard);
 
     // Event listener for the like button
-    // likeIcon.addEventListener("click", async (e) => {
-    //   await likePostApi(likeUrl, e.target.dataset.id); // Wait for like to be posted
-    //   totalLikes += 1; // Increment the like count
-    //   likeCount.textContent = totalLikes; // Update the like count immediately
-    // });
+    likeIcon.addEventListener('click', async (e) => {
+      await likePostApi(likeUrl, e.target.dataset.id); // Wait for like to be posted
+      totalLikes += 1; // Increment the like count
+      likeCount.textContent = totalLikes; // Update the like count immediately
+    });
   });
   const popButton = document.querySelectorAll('.comments');
   popButton.forEach((pop) => {
