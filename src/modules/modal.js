@@ -1,11 +1,11 @@
 /* eslint import/prefer-default-export: "off" */
-import { getComments } from './comment.js';
+import { getComments, postComment } from './comment.js';
 
 const modalContents = async (series, index) => {
-//   let dataComment = await getComments(index);
-//   if (dataComment.length === undefined) {
-//     dataComment = [];
-//   }
+  let dataComment = await getComments(index);
+  if (dataComment.length === undefined) {
+    dataComment = [];
+  }
   const modalContainer = document.querySelector('.modal');
   const modalContent = document.querySelector('.modal-content');
   modalContent.innerHTML = '';
@@ -34,24 +34,24 @@ const modalContents = async (series, index) => {
   const commentHeadline = document.createElement('h3');
   commentHeadline.classList.add('comment-headline');
   commentHeadline.textContent = 'Comments';
-  //   const modalSpan = document.createElement('span');
-  //   modalSpan.textContent = `(${dataComment.length})`;
-  //   commentHeadline.appendChild(modalSpan);
+  const modalSpan = document.createElement('span');
+  modalSpan.textContent = `(${dataComment.length})`;
+  commentHeadline.appendChild(modalSpan);
   modalContent.appendChild(commentHeadline);
 
-  //   dataComment.forEach((comment) => {
-  //     const modalCommentDiv = document.createElement('div');
-  //     modalCommentDiv.classList.add('modal-comment');
-  //     const modalCommentDate = document.createElement('p');
-  //     modalCommentDate.classList.add('comment-date');
-  //     modalCommentDate.textContent = formatDate(comment.creation_date);
-  //     modalCommentDiv.appendChild(modalCommentDate);
-  //     const modalCommentUser = document.createElement('p');
-  //     modalCommentUser.classList.add('comment-user');
-  //     modalCommentUser.textContent = `${comment.username} : ${comment.comment}`;
-  //     modalCommentDiv.appendChild(modalCommentUser);
-  //     modalContent.appendChild(modalCommentDiv);
-  //   });
+  dataComment.forEach((comment) => {
+    const modalCommentDiv = document.createElement('div');
+    modalCommentDiv.classList.add('modal-comment');
+    const modalCommentDate = document.createElement('p');
+    modalCommentDate.classList.add('comment-date');
+    modalCommentDate.textContent = formatDate(comment.creation_date);
+    modalCommentDiv.appendChild(modalCommentDate);
+    const modalCommentUser = document.createElement('p');
+    modalCommentUser.classList.add('comment-user');
+    modalCommentUser.textContent = `${comment.username} : ${comment.comment}`;
+    modalCommentDiv.appendChild(modalCommentUser);
+    modalContent.appendChild(modalCommentDiv);
+  });
 
   const modalFormDiv = document.createElement('div');
   modalFormDiv.classList.add('form-div');
@@ -80,38 +80,43 @@ const modalContents = async (series, index) => {
   modalFormDiv.appendChild(modalForm);
   modalContainer.appendChild(modalContent);
 
-//   modalForm.addEventListener('submit', async (e) => {
-//     e.preventDefault();
-//     const name = modalInput.value;
-//     const commentMessage = modalTextarea.value;
-//     const commentData = {
-//       item_id: index.toString(),
-//       username: name,
-//       comment: commentMessage,
-//     };
-//     if (name && commentMessage) {
-//       await postComment(commentData);
-//       const newComment = {
-//         username: commentData.username,
-//         comment: commentData.comment,
-//         creation_date: new Date().toISOString(),
-//       };
-//       dataComment.push(newComment);
-//       modalSpan.textContent = `(${dataComment.length})`;
-//       const modalCommentDiv = document.createElement('div');
-//       modalCommentDiv.classList.add('modal-comment');
-//       const modalCommentDate = document.createElement('p');
-//       modalCommentDate.classList.add('comment-date');
-//       modalCommentDate.textContent = formatDate(newComment.creation_date);
-//       modalCommentDiv.appendChild(modalCommentDate);
-//       const modalCommentUser = document.createElement('p');
-//       modalCommentUser.classList.add('comment-user');
-//       modalCommentUser.textContent = `${newComment.username} : ${newComment.comment}`;
-//       modalCommentDiv.appendChild(modalCommentUser);
-//       modalContent.insertBefore(modalCommentDiv, modalFormDiv);
-//       modalForm.reset();
-//     }
-//   });
+  modalForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = modalInput.value;
+    const commentMessage = modalTextarea.value;
+    const commentData = {
+      item_id: index.toString(),
+      username: name,
+      comment: commentMessage,
+    };
+    if (name && commentMessage) {
+      await postComment(commentData);
+      const newComment = {
+        username: commentData.username,
+        comment: commentData.comment,
+        creation_date: new Date().toISOString(),
+      };
+      dataComment.push(newComment);
+      modalSpan.textContent = `(${dataComment.length})`;
+      const modalCommentDiv = document.createElement('div');
+      modalCommentDiv.classList.add('modal-comment');
+      const modalCommentDate = document.createElement('p');
+      modalCommentDate.classList.add('comment-date');
+      modalCommentDate.textContent = formatDate(newComment.creation_date);
+      modalCommentDiv.appendChild(modalCommentDate);
+      const modalCommentUser = document.createElement('p');
+      modalCommentUser.classList.add('comment-user');
+      modalCommentUser.textContent = `${newComment.username} : ${newComment.comment}`;
+      modalCommentDiv.appendChild(modalCommentUser);
+      modalContent.insertBefore(modalCommentDiv, modalFormDiv);
+      modalForm.reset();
+    }
+  });
+};
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return date.toLocaleDateString(undefined, options);
 };
 
 export default modalContents;
