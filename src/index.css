@@ -202,6 +202,24 @@ body {
   margin-left: 0.5rem;
 }
 
+.modal-comment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.comment-date {
+  font-size: 0.8rem;
+  color: #888;
+  margin-right: 0.5rem;
+}
+
+.comment-user {
+  font-size: 1rem;
+  margin: 0;
+}
+
 .form-div {
   padding-left: 5rem;
   padding-right: 5rem;
