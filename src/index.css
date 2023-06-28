@@ -1,0 +1,257 @@
+body {
+  background-color: #222;
+  color: #fff;
+}
+
+.navbar-wrapper {
+  display: flex;
+  justify-content: space-between;
+  background-color: #333;
+}
+
+.nav-logo-heading {
+  padding-left: 2rem;
+  font-family: cursive;
+  animation: rotateAnimation 2s linear;
+  color: bisque;
+}
+
+@keyframes rotateAnimation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.nav-ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  font-size: 1.6rem;
+  padding-right: 2rem;
+}
+
+.nav-items a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.license-footer {
+  margin-top: 2rem;
+  padding: 2rem;
+  text-align: center;
+  background-color: #333;
+}
+
+.show-card {
+  padding-bottom: 10%;
+}
+
+.series-card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.series-card {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.series-img {
+  width: 100%;
+  height: 75%;
+  border-radius: 8px;
+}
+
+.series-details {
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.series-name {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.like-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.fa-thumbs-up {
+  color: #fff;
+  font-size: 18px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.like-activate {
+  color: #147bf0;
+}
+
+.like-count {
+  text-align: right;
+  margin-right: 22px;
+}
+
+.comments {
+  background-color: #555;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-top: 10px;
+  margin-left: 16px;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.comments:hover {
+  background-color: #777;
+}
+
+.modal {
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(58, 47, 66, 0.11);
+  padding: 1em;
+  transition: all 0.5s ease-in-out;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.comment-package {
+  border: 2px solid #fff;
+  border-radius: 10px;
+  height: 278px;
+  margin-bottom: 1rem;
+  overflow-y: scroll;
+}
+
+.comment-package::-webkit-scrollbar {
+  display: none;
+}
+
+.modal-content {
+  background-color: #222;
+  padding: 1em 0.5em;
+  min-height: 89vh;
+  max-width: 77%;
+  max-height: 90%;
+  overflow-y: auto;
+  transform: scale(0);
+  transition: transform 1s ease-in-out;
+  border-radius: 8px;
+  flex-direction: column;
+  text-align: center;
+  margin-left: 13%;
+}
+
+.modal-content.active {
+  transform: scale(1);
+  border: 1px solid;
+}
+
+.modal-img {
+  width: 18rem;
+}
+
+.fa-xmark {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.comment-form,
+.comment-form input,
+.comment-form textarea {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-form input,
+.comment-form textarea {
+  margin-bottom: 1rem;
+  background-color: #333;
+  border: none;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  outline: none;
+}
+
+.comment-form button[type="submit"] {
+  width: 7rem;
+  background-color: #555;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.comment-form button[type="submit"]:hover {
+  background-color: #777;
+}
+
+.modal-details {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.modal-name {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal-language {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.comment-headline {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.comment-headline span {
+  font-size: 0.8rem;
+  color: #888;
+  margin-left: 0.5rem;
+}
+
+.modal-comment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.comment-date {
+  font-size: 0.8rem;
+  color: #888;
+  margin-right: 0.5rem;
+}
+
+.comment-user {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.form-div {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
