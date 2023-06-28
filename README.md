@@ -77,7 +77,7 @@
 
 ## 🚀 Presentation <a name="presentation"></a>
 
-- <a href="">Check out the presentation</a>
+- <a href="https://drive.google.com/file/d/1YQWbMSfqdHp7QGdG7ui-9hOLhkjXKIwF/view?usp=sharing">Check out the presentation</a>
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
