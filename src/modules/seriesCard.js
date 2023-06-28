@@ -48,6 +48,10 @@ const seriesCard = async () => {
 
     // Event listener for the like button
     likeIcon.addEventListener('click', async (e) => {
+      likeIcon.classList.add('like-activate');
+      setTimeout(() => {
+        likeIcon.classList.remove('like-activate');
+      }, 760);
       await likePostApi(likeUrl, e.target.dataset.id); // Wait for like to be posted
       totalLikes += 1; // Increment the like count
       likeCount.textContent = totalLikes; // Update the like count immediately

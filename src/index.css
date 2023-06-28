@@ -48,7 +48,7 @@ body {
 
 .series-card-wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
 }
 
@@ -64,8 +64,17 @@ body {
   border-radius: 8px;
 }
 
+.series-details {
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
 .series-name {
   margin-top: 10px;
+  margin-bottom: 0;
 }
 
 .like-wrapper {
@@ -81,6 +90,15 @@ body {
   cursor: pointer;
 }
 
+.like-activate {
+  color: #147bf0;
+}
+
+.like-count {
+  text-align: right;
+  margin-right: 22px;
+}
+
 .comments {
   background-color: #555;
   color: #fff;
@@ -88,6 +106,7 @@ body {
   padding: 8px 16px;
   border-radius: 4px;
   margin-top: 10px;
+  margin-left: 16px;
   cursor: pointer;
   margin-right: 1rem;
 }
@@ -113,6 +132,18 @@ body {
   display: none;
 }
 
+.comment-package {
+  border: 2px solid #fff;
+  border-radius: 10px;
+  height: 278px;
+  margin-bottom: 1rem;
+  overflow-y: scroll;
+}
+
+.comment-package::-webkit-scrollbar {
+  display: none;
+}
+
 .modal-content {
   background-color: #222;
   padding: 1em 0.5em;
@@ -134,7 +165,7 @@ body {
 }
 
 .modal-img {
-  width: 5rem;
+  width: 18rem;
 }
 
 .fa-xmark {
