@@ -39,6 +39,9 @@ const modalContents = async (series, index) => {
   commentHeadline.appendChild(modalSpan);
   modalContent.appendChild(commentHeadline);
 
+  const commentPackage = document.createElement('div');
+  commentPackage.classList.add('comment-package');
+
   dataComment.forEach((comment) => {
     const modalCommentDiv = document.createElement('div');
     modalCommentDiv.classList.add('modal-comment');
@@ -50,7 +53,8 @@ const modalContents = async (series, index) => {
     modalCommentUser.classList.add('comment-user');
     modalCommentUser.textContent = `${comment.username} : ${comment.comment}`;
     modalCommentDiv.appendChild(modalCommentUser);
-    modalContent.appendChild(modalCommentDiv);
+    commentPackage.appendChild(modalCommentDiv);
+    modalContent.appendChild(commentPackage);
   });
 
   const modalFormDiv = document.createElement('div');
