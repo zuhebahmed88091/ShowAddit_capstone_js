@@ -112,7 +112,8 @@ const modalContents = async (series, index) => {
       modalCommentUser.classList.add('comment-user');
       modalCommentUser.textContent = `${newComment.username} : ${newComment.comment}`;
       modalCommentDiv.appendChild(modalCommentUser);
-      modalContent.insertBefore(modalCommentDiv, modalFormDiv);
+      commentPackage.appendChild(modalCommentDiv);
+      modalContent.insertBefore(commentPackage, modalFormDiv);
       modalForm.reset();
     }
   });
