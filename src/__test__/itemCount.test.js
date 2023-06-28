@@ -1,4 +1,4 @@
-import { testShows } from '../modules/itemCount.js';
+import { itemCounts } from '../modules/itemCount.js';
 
 global.fetch = jest.fn(() => Promise.resolve({
   json: () => Promise.resolve(
@@ -26,7 +26,11 @@ global.fetch = jest.fn(() => Promise.resolve({
 }));
 describe('items counter tests using Jest', () => {
   test('items count ', async () => {
-    const response = await testShows();
+    const response = await itemCounts();
     expect(response).toBe(2);
+  });
+  test('items count ', async () => {
+    const response = await itemCounts();
+    expect(response).not.toBe(0);
   });
 });

@@ -1,5 +1,6 @@
 /* eslint import/prefer-default-export: "off" */
 import { getComments, postComment } from './comment.js';
+import { getComments as getCommentCount, updateCommentCount } from './commentCount.js';
 
 const modalContents = async (series, index) => {
   let dataComment = await getComments(index);
@@ -54,8 +55,9 @@ const modalContents = async (series, index) => {
     modalCommentUser.textContent = `${comment.username} : ${comment.comment}`;
     modalCommentDiv.appendChild(modalCommentUser);
     commentPackage.appendChild(modalCommentDiv);
-    modalContent.appendChild(commentPackage);
   });
+
+  modalContent.appendChild(commentPackage);
 
   const modalFormDiv = document.createElement('div');
   modalFormDiv.classList.add('form-div');
@@ -102,6 +104,10 @@ const modalContents = async (series, index) => {
       };
       dataComment.push(newComment);
       modalSpan.textContent = `(${dataComment.length})`;
+
+      // Update the comment count using updateCommentCount function
+      updateCommentCount(dataComment.length);
+
       const modalCommentDiv = document.createElement('div');
       modalCommentDiv.classList.add('modal-comment');
       const modalCommentDate = document.createElement('p');
@@ -118,6 +124,7 @@ const modalContents = async (series, index) => {
     }
   });
 };
+
 const formatDate = (dateString) => {
   const date = new Date(dateString);
   const options = { year: 'numeric', month: 'long', day: 'numeric' };

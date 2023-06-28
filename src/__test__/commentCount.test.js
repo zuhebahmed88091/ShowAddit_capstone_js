@@ -1,4 +1,4 @@
-import { testComments } from '../modules/commentCount.js';
+import { countComments } from '../modules/commentCount.js';
 
 global.fetch = jest.fn(() => Promise.resolve({
   json: () => Promise.resolve(
@@ -20,13 +20,15 @@ global.fetch = jest.fn(() => Promise.resolve({
     ],
   ),
 }));
+
 describe('comment counter tests using Jest', () => {
-  test('test Comment Count ', async () => {
-    const response = await testComments(3);
+  test('Test Comment Count with items', async () => {
+    const response = await countComments(3);
     expect(response.length).toBe(3);
   });
-  test('Wrong test Comment Count', async () => {
-    const response = await testComments(3);
-    expect(response.length).not.toBe(1);
+
+  test('Test Comment Count with no items', async () => {
+    const response = await countComments();
+    expect(response.length).not.toBe(0);
   });
 });
